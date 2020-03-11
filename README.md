@@ -22,8 +22,8 @@ Sample repo for rails + docker + docker-compose + dip, with respect to Evilmarti
 3. Rename `app_name` in docker-compose.yml to your project name.
 4. `docker-compose build` to build
 5. `docker-compose exec app sh` or `dip sh` to enter the container
-   1. If you don't have rails app yet. Run `bundle init && bundle add rails` to make Gemfile and Gemfile.lock
-   2. Perform `rails new .` with your preferential options.
+   1. Perform `rails new .` with your preferential options.
+   2. I often use options like this `rails new . -G -s --database=postgresql --skip-active-storage --skip-action-mailer --skip-active-job --skip-action-cable --skip-action-mailbox --skip-action-text --skip-turbolinks --skip-sprockets --skip-spring --skip-bootsnap --webpacker --webpack=react` .
    3. If needed, perform `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java` to supress the warning.
    4. `rm -rf vendor` to remove vendor/ directory.
    5. `exit` to logoff from the container.
