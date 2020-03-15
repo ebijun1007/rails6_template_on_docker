@@ -66,6 +66,21 @@ services:
       - 5432
     env_file: .env
 
+  pgadmin:
+    image: dpage/pgadmin4:4.2
+    container_name: pgadmin4
+    ports:
+      - 8000:80
+    volumes:
+      - ./docker/pgadmin4:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root
+      PGADMIN_DEFAULT_PASSWORD: root
+    hostname: pgadmin4
+    depends_on:
+      - postgres
+    restart: always
+
   webpacker:
     <<: *app
     command: ./bin/webpack-dev-server

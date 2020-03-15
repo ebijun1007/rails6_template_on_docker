@@ -76,3 +76,6 @@ provision:
   - dip sh -c "rails db:prepare 2> /dev/null; exit 0"
   - dip sh -c "rails db:prepare"
   - dip sh -c "RAILS_ENV=test rails db:prepare"
+
+pgadmin:
+  - dip compose up -d pgadmin
