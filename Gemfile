@@ -34,6 +34,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 
   # Custom gems
+  gem 'brakeman'
   gem 'rubycritic'
   gem 'spring-commands-rspec'
   gem 'spring-commands-rubocop'
