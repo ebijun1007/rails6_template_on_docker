@@ -23,13 +23,10 @@ Sample repo for rails + docker + docker-compose + dip, with respect to Evilmarti
 4. `docker-compose build` to build
 5. `docker-compose exec app sh` or `dip sh` to enter the container
    1. Perform `rails new .` with your preferential options.
-      * I often use options like this `rails new . -G -s --database=postgresql --skip-active-storage --skip-action-mailer --skip-active-job --skip-action-cable --skip-action-mailbox --skip-action-text --skip-turbolinks --skip-sprockets --skip-spring --skip-bootsnap --webpacker --webpack=react` .
-   3. If needed, perform `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java` to supress the warning.
-   4. `rm -rf vendor` to remove vendor/ directory.
-   5. `exit` to logoff from the container.
+      - I often use options like this `rails new . -G -s --database=postgresql --skip-active-storage --skip-action-mailer --skip-active-job --skip-action-cable --skip-action-mailbox --skip-action-text --skip-turbolinks --skip-sprockets --skip-listen --skip-test-unit --webpacker --webpack=react` .
+   2. If needed, perform `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java` to supress the warning.
+   3. `rm -rf vendor` to remove vendor/ directory. And remove other unnecessary directories.
+   4. `exit` to logoff from the container.
 6. `dip provision` to setup database connections and envs.
-7. `dip minitest` to perfom the initial test.
-   1-. add `config.hosts << "localhost"` and `config.web_console.whitelisted_ips = '0.0.0.0/0'` to config/environments/development.rb
-8. `git checkin` to commit the change.
-9. `dip rails s` to start Rails.
-10. Open `http://localhost:3000/` on your browser to show the welcome page.
+7. `dip rails s` to start Rails.
+8. Open `http://localhost:3000/` on your browser to show the welcome page.

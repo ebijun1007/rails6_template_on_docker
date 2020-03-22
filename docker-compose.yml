@@ -7,9 +7,9 @@ services:
       dockerfile: ./.dockerdev/Dockerfile
       args:
         RUBY_VERSION: "2.7.0-slim-buster"
-        PG_MAJOR: "12"
+        PG_MAJOR: "11"
         NODE_MAJOR: "12"
-        YARN_VERSION: "1.21.1"
+        YARN_VERSION: "1.22.4"
         BUNDLER_VERSION: "2.1.2"
     image: your_app:1.0.0
     tmpfs:
@@ -55,19 +55,20 @@ services:
       - "3000:3000"
 
   postgres:
-    image: postgres:12
+    image: postgres:11
     volumes:
       - .psqlrc:/root/.psqlrc:ro
       - postgres:/var/lib/postgresql/data
       - ./log:/root/log:cached
     environment:
-      - PSQL_HISTFILE=/root/log/.psql_history
+      PSQL_HISTFILE: "/root/log/.psql_history"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
     ports:
       - 5432
     env_file: .env
 
   pgadmin:
-    image: dpage/pgadmin4:4.2
+    image: dpage/pgadmin4:4.19
     container_name: pgadmin4
     ports:
       - 8000:80

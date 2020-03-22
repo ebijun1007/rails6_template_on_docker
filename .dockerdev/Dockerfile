@@ -38,6 +38,7 @@ ENV BUNDLE_PATH $GEM_HOME
 ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH\
   BUNDLE_BIN=$BUNDLE_PATH/bin
 ENV PATH /app/bin:$BUNDLE_BIN:$PATH
+ENV RUBYOPT='-W:no-deprecated -W:no-experimental'
 
 # RubyGemsをアップグレードして必要なバージョンのbundlerをインストール
 RUN gem update --system &&\

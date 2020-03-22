@@ -68,6 +68,10 @@ interaction:
     command: bundle exec rails_best_practices .
     command: bundle exec bundle-audit
     command: bundle exec brakeman
+  
+  pgadmin:
+    description: Run pgadmin
+    service: pgadmin
 
 provision:
   - dip compose up -d postgres
@@ -76,6 +80,3 @@ provision:
   - dip sh -c "rails db:prepare 2> /dev/null; exit 0"
   - dip sh -c "rails db:prepare"
   - dip sh -c "RAILS_ENV=test rails db:prepare"
-
-pgadmin:
-  - dip compose up -d pgadmin
