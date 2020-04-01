@@ -63,6 +63,8 @@ services:
     environment:
       PSQL_HISTFILE: "/root/log/.psql_history"
       POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - 5432
     env_file: .env
